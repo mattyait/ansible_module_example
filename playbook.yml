@@ -1,0 +1,15 @@
+- hosts: localhost
+
+  tasks:
+
+     - name: Test that my module works
+       rds_start_wait:
+        region: "au-southeast-2"
+        instance_name: "testing"
+        description: "starting rds and wait till instance started"
+        wait_time: 120
+        state: "start"
+       register: result
+
+     - debug: var=result
+
